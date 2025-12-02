@@ -44,10 +44,10 @@ void event_handler(struct esb_evt const *event)
 
 	switch (event->evt_id) {
 	case ESB_EVENT_TX_SUCCESS:
-		LOG_DBG("TX SUCCESS EVENT");
+		LOG_DBG("TX SUCCESS EVENT %u", event->tx_attempts);
 		break;
 	case ESB_EVENT_TX_FAILED:
-		LOG_DBG("TX FAILED EVENT");
+		LOG_DBG("TX FAILED EVENT %u", event->tx_attempts);
 		break;
 	case ESB_EVENT_RX_RECEIVED:
 		while (esb_read_rx_payload(&rx_payload) == 0) {
@@ -256,6 +256,6 @@ int main(void)
 			}
 			tx_payload.data[1]++;
 		}
-		k_sleep(K_MSEC(100));
+		k_sleep(K_MSEC(1000));
 	}
 }

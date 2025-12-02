@@ -201,56 +201,88 @@ uint32_t esb_ppi_radio_disabled_get(void)
 	return disabled_phy_end_egu;
 }
 
+#if defined(CONFIG_SOC_SERIES_NRF54HX)
+
+static nrfx_gppi_handle_t gppi_handles[7];
+static int gppi_handles_index;
+
+static int alloc_dppi_workaround(uint32_t domain_id)
+{
+	ARG_UNUSED(domain_id);
+
+	__ASSERT_NO_MSG(gppi_handles_index < ARRAY_SIZE(gppi_handles));
+
+	const uint32_t eep = nrf_egu_event_address_get(ESB_EGU, ESB_EGU_EVENT);
+	const uint32_t tep = nrf_egu_task_address_get(ESB_EGU, ESB_EGU_TASK);
+	int err;
+
+	err = nrfx_gppi_conn_alloc(eep, tep, &gppi_handles[gppi_handles_index]);
+	if (err) {
+		return err;
+	}
+
+	return nrf_egu_publish_get(ESB_EGU, ESB_EGU_EVENT) & BIT_MASK(8);
+}
+
+#else
+
+static int alloc_dppi_workaround(uint32_t domain_id) {
+	return nrfx_gppi_channel_alloc(domain_id);
+}
+
+#endif
+
 int esb_ppi_init(void)
 {
 	int ch;
 	uint32_t domain_id = nrfx_gppi_domain_id_get((uint32_t)ESB_DPPIC);
 
-	ch = nrfx_gppi_channel_alloc(domain_id);
+	ch = alloc_dppi_workaround(domain_id);
 	if (ch < 0) {
 		goto error;
 	}
 	radio_address_timer_stop = (uint8_t)ch;
 
-	ch = nrfx_gppi_channel_alloc(domain_id);
+	ch = alloc_dppi_workaround(domain_id);
 	if (ch < 0) {
 		goto error;
 	}
 	timer_compare0_radio_disable = (uint8_t)ch;
 
-	ch = nrfx_gppi_channel_alloc(domain_id);
+	ch = alloc_dppi_workaround(domain_id);
 	if (ch < 0) {
 		goto error;
 	}
 	timer_compare1_radio_txen = (uint8_t)ch;
 
-	ch = nrfx_gppi_channel_alloc(domain_id);
+	ch = alloc_dppi_workaround(domain_id);
 	if (ch < 0) {
 		goto error;
 	}
 	disabled_phy_end_egu = (uint8_t)ch;
 
-	ch = nrfx_gppi_channel_alloc(domain_id);
+	ch = alloc_dppi_workaround(domain_id);
 	if (ch < 0) {
 		goto error;
 	}
 	egu_timer_start = (uint8_t)ch;
 
-	ch = nrfx_gppi_channel_alloc(domain_id);
+	ch = alloc_dppi_workaround(domain_id);
 	if (ch < 0) {
 		goto error;
 	}
 	egu_ramp_up = (uint8_t)ch;
 
 	if (IS_ENABLED(CONFIG_ESB_NEVER_DISABLE_TX)) {
-		ch = nrfx_gppi_channel_alloc(domain_id);
+		ch = alloc_dppi_workaround(domain_id);
 		if (ch < 0) {
 			goto error;
 		}
 		radio_end_timer_start = (uint8_t)ch;
 	}
 
-	ch = nrfx_gppi_group_channel_alloc(domain_id);
+	// ch = nrfx_gppi_group_channel_alloc(domain_id);
+	ch = 0;
 	if (ch < 0) {
 		LOG_ERR("gppi_group_alloc failed with: %d\n", ch);
 		return ch;
