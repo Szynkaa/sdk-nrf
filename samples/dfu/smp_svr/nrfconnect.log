@@ -1,0 +1,46 @@
+nRF Connect, 2026-03-20
+Zephyr (D8:35:72:93:FA:E0)
+V	08:59:33.953	Connecting to D8:35:72:93:FA:E0...
+D	08:59:33.953	gatt = device.connectGatt(autoConnect = false, TRANSPORT_LE, preferred PHY = LE 1M)
+D	08:59:34.283	[Broadcast] Action received: android.bluetooth.device.action.ACL_CONNECTED
+D	08:59:34.294	[Callback] Connection state changed with status: 0 and new state: CONNECTED (2)
+I	08:59:34.294	Connected to D8:35:72:93:FA:E0
+V	08:59:34.295	Discovering services...
+D	08:59:34.295	gatt.discoverServices()
+D	08:59:34.386	[Callback] Services discovered with status: 0
+I	08:59:34.386	Services discovered
+V	08:59:34.390	Generic Attribute (0x1801)
+- Service Changed [I] (0x2A05)
+   Client Characteristic Configuration (0x2902)
+- Client Supported Features [R W] (0x2B29)
+- Database Hash [R] (0x2B2A)
+Generic Access (0x1800)
+- Device Name [R] (0x2A00)
+- Appearance [R] (0x2A01)
+- Peripheral Preferred Connection Parameters [R] (0x2A04)
+SMP Service (8d53dc1d-1db7-4cd3-868b-8a527460aa84)
+- SMP Characteristic [N WNR] (da2e7828-fbce-4e01-ae9e-261174997c48)
+   Client Characteristic Configuration (0x2902)
+D	08:59:34.391	gatt.setCharacteristicNotification(00002a05-0000-1000-8000-00805f9b34fb, true)
+V	08:59:36.630	Starting pairing...
+D	08:59:36.630	device.createBond()
+D	08:59:36.677	[Broadcast] Action received: android.bluetooth.device.action.BOND_STATE_CHANGED, bond state changed to: BONDING (11)
+D	08:59:36.944	[Broadcast] Action received: android.bluetooth.device.extra.PAIRING_VARIANT, pairing variant: CONSENT
+D	08:59:39.029	[Broadcast] Action received: android.bluetooth.device.action.BOND_STATE_CHANGED, bond state changed to: BONDED (12)
+I	08:59:39.030	Device bonded
+I	08:59:39.472	Connection parameters updated (interval: 45.0ms, latency: 0, timeout: 420ms)
+V	08:59:50.063	[McuMgr] Connecting...
+D	08:59:50.066	[McuMgr] gatt = device.connectGatt(autoConnect = false, TRANSPORT_LE, LE 1M)
+D	08:59:50.107	[McuMgr] [Callback] Connection state changed with status: 0 and new state: 2 (CONNECTED)
+I	08:59:50.111	[McuMgr] Connected to D8:35:72:93:FA:E0
+D	08:59:50.113	[McuMgr] wait(1600)
+V	08:59:51.717	[McuMgr] Discovering services...
+D	08:59:51.724	[McuMgr] gatt.discoverServices()
+I	08:59:51.737	[McuMgr] Services discovered
+V	08:59:51.743	[McuMgr] Primary service found
+V	08:59:51.747	[McuMgr] Requesting new MTU...
+D	08:59:51.750	[McuMgr] gatt.requestMtu(498)
+I	08:59:51.846	[McuMgr] MTU changed to: 498
+D	08:59:51.851	[McuMgr] gatt.setCharacteristicNotification(da2e7828-fbce-4e01-ae9e-261174997c48, true)
+V	08:59:51.857	[McuMgr] Enabling notifications for da2e7828-fbce-4e01-ae9e-261174997c48
+D	08:59:51.860	[McuMgr] gatt.writeDescriptor(00002902-0000-1000-8000-00805f9b34fb, value=0x01-00)

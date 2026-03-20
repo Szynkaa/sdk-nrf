@@ -1,0 +1,86 @@
+*** Booting MCUboot v2.3.0-dev-bdd73970ccb9 ***
+*** Using nRF Connect SDK v3.2.99-1e1f22f9518e ***
+*** Using Zephyr OS v4.3.99-d088ff9107d6 ***
+I: Starting bootloader
+I: Primary image: magic=good, swap_type=0x2, copy_done=0x1, image_ok=0x1
+I: Secondary image: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+I: Boot source: none
+I: Image index: 0, Swap type: none
+I: Bootloader chainload address offset: 0x11000
+I: Image version: v0.0.0
+I: Jumping to the first image slot
+*** Booting nRF Connect SDK v3.2.99-1e1f22f9518e ***
+*** Using Zephyr OS v4.3.99-d088ff9107d6 ***
+[00:00:00.012,949] <inf> bt_sdc_hci_driver: SoftDevice Controller build revision: 
+                                            67 7c b1 7d e3 7b ef 86  d3 c6 74 05 07 ae 42 e6 |g|.}.{.. ..t...B.
+                                            06 ce a3 2a                                      |...*             
+[00:00:00.014,348] <inf> bt_hci_core: HW Platform: Nordic Semiconductor (0x0002)
+[00:00:00.014,360] <inf> bt_hci_core: HW Variant: nRF54Lx (0x0005)
+[00:00:00.014,373] <inf> bt_hci_core: Firmware: Standard Bluetooth controller (0x00) Version 103.45436 Build 4017873789
+[00:00:00.014,769] <dbg> bt_smp: bt_smp_init: LE SC enabled
+[00:00:00.014,788] <inf> bt_hci_core: HCI transport: SDC
+[00:00:00.014,835] <inf> bt_hci_core: Identity: D8:35:72:93:FA:E0 (random)
+[00:00:00.014,851] <inf> bt_hci_core: HCI: version 6.2 (0x10) revision 0x3086, manufacturer 0x0059
+[00:00:00.014,866] <inf> bt_hci_core: LMP: version 6.2 (0x10) subver 0x3086
+[00:00:00.015,350] <inf> smp_bt_sample: Advertising successfully started
+[00:00:00.015,369] <inf> smp_sample: build time: Mar 20 2026 08:59:09
+[00:00:00.028,095] <dbg> bt_smp: bt_smp_accept: conn 0x20002ab0 handle 0
+[00:00:00.028,103] <dbg> bt_smp: bt_smp_connected: chan 0x20002d2c cid 0x0006
+[00:00:00.028,134] <dbg> bt_gatt: bt_gatt_connected: conn 0x20002ab0
+[00:00:00.028,155] <inf> smp_bt_sample: Connected
+[00:00:00.028,593] <dbg> bt_smp: bt_smp_pkey_ready: 
+[00:00:00.028,713] <dbg> bt_gatt: bt_gatt_attr_read: handle 0x0000 offset 0 length 2
+[00:00:00.028,729] <dbg> bt_gatt: bt_gatt_attr_read: handle 0x0000 offset 0 length 5
+[00:00:00.028,812] <dbg> bt_gatt: bt_gatt_attr_read: handle 0x0000 offset 0 length 5
+[00:00:00.028,826] <dbg> bt_gatt: bt_gatt_attr_read: handle 0x0000 offset 0 length 5
+[00:00:00.028,893] <dbg> bt_gatt: bt_gatt_attr_read: handle 0x0000 offset 0 length 2
+[00:00:00.028,908] <dbg> bt_gatt: bt_gatt_attr_read: handle 0x0000 offset 0 length 5
+[00:00:00.028,979] <dbg> bt_gatt: bt_gatt_attr_read: handle 0x0000 offset 0 length 5
+[00:00:00.029,048] <dbg> bt_gatt: bt_gatt_attr_read: handle 0x0000 offset 0 length 5
+[00:00:00.029,063] <dbg> bt_gatt: bt_gatt_attr_read: handle 0x0000 offset 0 length 16
+[00:00:00.029,136] <dbg> bt_gatt: bt_gatt_attr_read: handle 0x0000 offset 0 length 19
+[00:00:00.029,455] <dbg> bt_gatt: db_hash_gen: Hash: 
+                                  06 7b 39 b8 9a cd 9a 68  a5 33 54 61 ff d3 93 42 |.{9....h .3Ta...B
+[00:00:00.323,859] <dbg> bt_gatt: bt_gatt_attr_read: handle 0x0000 offset 0 length 16
+[00:00:00.639,026] <dbg> bt_smp: bt_smp_disconnected: chan 0x20002d2c cid 0x0006
+[00:00:00.639,059] <dbg> bt_gatt: bt_gatt_disconnected: conn 0x20002ab0
+[00:00:00.639,092] <inf> smp_bt_sample: Disconnected, reason 0x13 
+[00:00:00.639,573] <inf> smp_bt_sample: Advertising successfully started
+[00:00:05.567,702] <dbg> bt_smp: bt_smp_accept: conn 0x20002ab0 handle 1
+[00:00:05.567,714] <dbg> bt_smp: bt_smp_connected: chan 0x20002d2c cid 0x0006
+[00:00:05.567,745] <dbg> bt_gatt: bt_gatt_connected: conn 0x20002ab0
+[00:00:05.567,766] <inf> smp_bt_sample: Connected
+[00:00:05.858,831] <dbg> bt_gatt: bt_gatt_attr_read: handle 0x0000 offset 0 length 16
+[00:00:08.243,767] <dbg> bt_smp: bt_smp_recv: Received SMP code 0x01 len 6
+[00:00:08.243,783] <dbg> bt_smp: smp_pairing_req: req: io_capability 0x04, oob_flag 0x00, auth_req 0x2D, max_key_size 0x10, init_key_dist 0x0F, resp_key_dist 0x0F
+[00:00:08.243,996] <dbg> bt_smp: smp_init: prnd 3d027446486efd6e1c9be6f7b8b35801
+[00:00:08.244,011] <dbg> bt_smp: smp_pairing_req: rsp: io_capability 0x03, oob_flag 0x00, auth_req 0x09, max_key_size 0x10, init_key_dist 0x02, resp_key_dist 0x00
+[00:00:08.335,133] <dbg> bt_smp: bt_smp_recv: Received SMP code 0x0c len 64
+[00:00:08.335,143] <dbg> bt_smp: smp_public_key: 
+[00:00:08.423,900] <dbg> bt_smp: bt_smp_recv: Received SMP code 0x04 len 16
+[00:00:08.423,910] <dbg> bt_smp: smp_pairing_random: 
+[00:00:08.462,318] <dbg> bt_smp: bt_smp_dhkey_ready: 0x20006dec
+[00:00:09.683,839] <dbg> bt_smp: bt_smp_recv: Received SMP code 0x0d len 16
+[00:00:09.683,854] <dbg> bt_smp: smp_dhkey_check: 
+[00:00:09.684,769] <dbg> bt_smp: sc_smp_send_dhkey_check: 
+[00:00:10.043,966] <dbg> bt_smp: bt_smp_encrypt_change: chan 0x20002d2c conn 0x20002ab0 handle 1 encrypt 0x01 hci status 0x00 
+[00:00:10.043,977] <dbg> bt_gatt: bt_gatt_encrypt_change: conn 0x20002ab0
+[00:00:10.088,876] <dbg> bt_smp: bt_smp_recv: Received SMP code 0x08 len 16
+[00:00:10.088,885] <dbg> bt_smp: smp_ident_info: 
+[00:00:10.133,801] <dbg> bt_smp: bt_smp_recv: Received SMP code 0x09 len 7
+[00:00:10.133,851] <dbg> bt_smp: smp_ident_addr_info: identity F8:8F:07:68:D0:E6 (public)
+[00:00:10.134,319] <dbg> bt_smp: smp_pairing_complete: got status 0x0
+[00:00:10.583,833] <dbg> bt_gatt: bt_gatt_attr_read: handle 0x0000 offset 0 length 2
+[00:00:10.583,859] <dbg> bt_gatt: bt_gatt_attr_read: handle 0x0000 offset 0 length 2
+[00:00:10.583,878] <dbg> bt_gatt: bt_gatt_attr_read: handle 0x0000 offset 0 length 16
+[00:00:10.718,827] <dbg> bt_gatt: bt_gatt_attr_read: handle 0x0000 offset 0 length 2
+[00:00:10.718,848] <dbg> bt_gatt: bt_gatt_attr_read: handle 0x0000 offset 0 length 16
+[00:00:10.808,864] <dbg> bt_gatt: bt_gatt_attr_read: handle 0x0000 offset 0 length 5
+[00:00:10.808,966] <dbg> bt_gatt: bt_gatt_attr_read: handle 0x0000 offset 0 length 5
+[00:00:10.898,864] <dbg> bt_gatt: bt_gatt_attr_read: handle 0x0000 offset 0 length 5
+[00:00:11.258,844] <dbg> bt_gatt: sc_ccc_cfg_write: value 0x0002
+[00:00:11.258,976] <dbg> bt_gatt: sc_save: peer F8:8F:07:68:D0:E6 (public) start 0x0000 end 0x0000
+[00:00:11.259,028] <dbg> bt_gatt: find_sc_cfg: id: 0, addr: F8:8F:07:68:D0:E6 (public)
+[00:00:11.259,067] <dbg> bt_gatt: find_sc_cfg: id: 0, addr: 00:00:00:00:00:00 (public)
+[00:00:11.259,076] <dbg> bt_gatt: bt_gatt_attr_write_ccc: handle 0x0000 value 2
+[00:00:11.259,086] <dbg> bt_gatt: gatt_ccc_changed: ccc 0x200008d0 value 0x0002
